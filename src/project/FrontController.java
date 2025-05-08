@@ -8,37 +8,42 @@ public class FrontController {
 
 	public static void main(String[] args) {
 		boolean isstop = false;
+		boolean isTrue = false;
 		while (!isstop) {
 			menuDisplay();
 			int choice = sc.nextInt();
-			switch (choice) {
-			case 1 -> {
-				SelectController select = new SelectController();
-				select.execute();
-				userDisplay();
-				int userChoice = sc.nextInt();
-				switch (userChoice) {
+			while (!isTrue) {
+				switch (choice) {
 				case 1 -> {
+					SelectController select = new SelectController();
 					select.execute();
+					userDisplay();
+					int userChoice = sc.nextInt();
+					switch (userChoice) {
+					case 1 -> {
+						select.execute();
+					}
+					case 2 -> {
+						InsertController insert = new InsertController();
+						insert.execute();
+					}
+					case 3 -> {
+						UpdateController update = new UpdateController();
+						update.execute();
+					}
+					case 4 -> {
+						DeleteController delete = new DeleteController();
+						delete.execute();
+					}
+					default -> {
+						isTrue = true;
+					}
+					}
 				}
 				case 2 -> {
-					InsertController insert = new InsertController();
-					insert.execute();
-				}
-				case 3 -> {
-					UpdateController update = new UpdateController();
-					update.execute();
-				}
-				case 4 -> {
-					DeleteController delete = new DeleteController();
-					delete.execute();
+					isstop = true;
 				}
 				}
-				break;
-			}
-			case 2 -> {
-				isstop = true;
-			}
 			}
 		}
 		System.out.println("========프로그램 종료========");
