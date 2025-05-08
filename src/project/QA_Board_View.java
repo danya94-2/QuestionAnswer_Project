@@ -8,6 +8,12 @@ public class QA_Board_View {
 			System.out.println("해당하는 게시글 없음");
 			return;
 		}
+		
 		list.stream().forEach(gitList -> System.out.println(gitList));
+	}
+	
+	public static void display (String message) {
+
+		System.out.println("알림 : " + message);
 	}
 }
