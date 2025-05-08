@@ -11,6 +11,29 @@ import java.util.List;
 import util.DBUtil;
 
 public class QA_Board_DAO {
+	// selectAll
+	public List<QA_Board_DTO> selectAll() {
+		List<QA_Board_DTO> gitList = new ArrayList<QA_Board_DTO>();
+		Connection conn = DBUtil.getConnection();
+		Statement st = null;
+		ResultSet rs = null;
+		String sql = "select * from Board";
+
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				QA_Board_DTO list = makeList(rs);
+				gitList.add(list);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbDisconnect(conn, st, rs);
+		}
+		return gitList;
+	}
+	
 	// selectByTitle
 	public List<QA_Board_DTO> selectByTitle(String title) {
 		List<QA_Board_DTO> titleList = new ArrayList<QA_Board_DTO>();
