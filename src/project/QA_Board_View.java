@@ -10,4 +10,9 @@ public class QA_Board_View {
 		}
 		list.stream().forEach(gitList -> System.out.println(gitList));
 	}
+	
+	public static void display (String message) {
+
+		System.out.println("알림 : " + message);
+	}
 }
