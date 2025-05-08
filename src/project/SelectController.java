@@ -30,4 +30,7 @@ public class SelectController implements CommControllerInterface {
 	public void execute() {
 		f_selectAll();
 	}
+	public void execute2() {
+		f_selectByTitle();
+	}
 }

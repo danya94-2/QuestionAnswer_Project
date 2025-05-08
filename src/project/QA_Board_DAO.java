@@ -112,7 +112,7 @@ public class QA_Board_DAO {
 		int result = 0;
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
-		String sql = "insert into board values(?,?,sysdate,?,?,null,Q)";
+		String sql = "insert into board values(?,?,sysdate,?,?,null,'Q')";
 		try {
 			st = conn.prepareStatement(sql);
 			st.setInt(1, qa_board.getId());
