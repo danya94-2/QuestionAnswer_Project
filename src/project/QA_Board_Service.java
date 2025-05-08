@@ -9,4 +9,9 @@ public class QA_Board_Service {
 		return qa_Board_DAO.selectAll();
 	}
 
+	// selectByTitle
+	public List<QA_Board_DTO> selectByTitle(String title) {
+		return qa_Board_DAO.selectByTitle(title);
+	}
+
 }
