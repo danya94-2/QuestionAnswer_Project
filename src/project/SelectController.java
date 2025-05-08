@@ -9,7 +9,7 @@ public class SelectController implements CommControllerInterface {
 
 
 	private static List<QA_Board_DTO> f_selectAll() {
-		System.out.println("==selectAll==");
+		//System.out.println("==selectAll==");
 		List<QA_Board_DTO> list = qa_Board_Service.selectAll();
 		QA_Board_View.display(list);
 		return list;

@@ -63,7 +63,7 @@ public class QA_Board_DAO {
 
 	private QA_Board_DTO makeList(ResultSet rs) throws SQLException {
 		QA_Board_DTO list = QA_Board_DTO.builder().id(rs.getInt("id")).writer(rs.getString("writer"))
-				.createdDate(rs.getDate("createdDate")).title(rs.getString("title")).content(rs.getString("contenc"))
+				.createdDate(rs.getDate("createdDate")).title(rs.getString("title")).content(rs.getString("content"))
 				.build();
 		return list;
 	}
@@ -73,15 +73,13 @@ public class QA_Board_DAO {
 			PreparedStatement pst = null;
 			ResultSet rs = null;
 			int resultCount = 0;
-			String sql = "update Board set title = ?, content = ?, password = ?, qatype = ? where id = ?";
+			String sql = "update Board set title = ?, content = ? where id = ?";
 			conn = DBUtil.getConnection();
 			try {
 				pst = conn.prepareStatement(sql);
 				pst.setString(1, update.getTitle());
 				pst.setString(2, update.getContent());
-				pst.setString(3, update.getPassword());
-				pst.setString(4, update.getQAtype());
-				pst.setInt(5, update.getId());
+				pst.setInt(3, update.getId());
 				resultCount = pst.executeUpdate();
 			} catch (SQLException e) {
 				e.printStackTrace();
