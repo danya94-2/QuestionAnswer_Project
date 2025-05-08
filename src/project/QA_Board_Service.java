@@ -8,5 +8,9 @@ public class QA_Board_Service {
 	public List<QA_Board_DTO> selectAll() {
 		return qa_Board_DAO.selectAll();
 	}
+	
+	public int update(QA_Board_DTO update) {
+		return qa_Board_DAO.update(update);
+	}
 
 }
