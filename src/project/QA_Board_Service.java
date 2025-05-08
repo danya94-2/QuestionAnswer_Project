@@ -18,4 +18,7 @@ public class QA_Board_Service {
 		return qa_Board_DAO.selectByTitle(title);
 	}
 
+	public int deleteById (int id) {
+		return qa_Board_DAO.deleteById(id);
+	}
 }

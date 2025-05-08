@@ -69,4 +69,19 @@ public class QA_Board_DAO {
 			return resultCount;
 		}
 
+		public int deleteById(int id) {
+			int result = 0;
+			Connection conn = DBUtil.getConnection();
+			PreparedStatement st = null;
+			String sql = "delete from Board where id = ?";
+			try {
+				st = conn.prepareStatement(sql);
+				st.setInt(1, id);
+				result = st.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
+
 }
