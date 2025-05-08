@@ -1,6 +1,7 @@
 package project;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -43,5 +44,20 @@ public class QA_Board_DAO {
 					.content(rs.getString("contenc"))
 					.build();
 			return list;
+		}
+		
+		public int deleteById(int id) {
+			int result = 0;
+			Connection conn = DBUtil.getConnection();
+			PreparedStatement st = null;
+			String sql = "delete from Board where id = ?";
+			try {
+				st = conn.prepareStatement(sql);
+				st.setInt(1, id);
+				result = st.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return result;
 		}
 }
