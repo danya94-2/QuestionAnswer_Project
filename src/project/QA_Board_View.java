@@ -12,6 +12,7 @@ public class QA_Board_View {
 	}
 	
 	public static void display (String message) {
+
 		System.out.println("알림 : " + message);
 	}
 }
