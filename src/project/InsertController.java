@@ -30,5 +30,7 @@ public class InsertController implements CommControllerInterface {
 				.title(title)
 				.writer(writer)
 				.build();
+		
+		qa_Board_Service.insert(qa_board_dto);
 	}
 }

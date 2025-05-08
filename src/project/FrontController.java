@@ -10,14 +10,13 @@ public class FrontController {
 		boolean isTrue = false;
 		menuDisplay();
 		while (!isTrue) {
-			
-			
 			userDisplay();
 			int userChoice = sc.nextInt();
+			SelectController select = new SelectController();
 			switch (userChoice) {
 			
 			case 1 -> {
-				SelectController select = new SelectController();
+				
 				select.execute();
 			}
 			case 2 -> {
@@ -32,10 +31,11 @@ public class FrontController {
 				DeleteController delete = new DeleteController();
 				delete.execute();
 			}
-			case 5 -> {isTrue = true;}
-			default -> {
-				isTrue = true;
+			case 5 -> {
+				select.execute2();
 			}
+			case 6 -> {isTrue = true;}
+			
 			}
 
 		}
@@ -44,14 +44,14 @@ public class FrontController {
 
 	private static void menuDisplay() {
 		System.out.println("=======시작 화면=======");
-		System.out.println("	QA 게시판");
+		System.out.println("	   QA 게시판      ");
 		System.out.println("=====================");
 	}
 
 	private static void userDisplay() {
-		System.out.println("===========메뉴===========");
-		System.out.println("1.조회 2.작성 3.수정 4.삭제 5.실행 종료");
-		System.out.println("=========================");
+		System.out.println("=======================메뉴=======================");
+		System.out.println("1.전체 조회 2.작성 3.수정 4.삭제 5.상세 조회 6.실행 종료");
+		System.out.println("=================================================");
 		System.out.print("작업선택>");
 	}
 }
