@@ -46,29 +46,27 @@ public class QA_Board_DAO {
 			return list;
 		}
 		
-		  public int update(QA_Board_DTO update) {
-				Connection conn;
-				PreparedStatement pst = null;
-				ResultSet rs;
-				int resultCount = 0;
-				String sql = "update Board set title = ?, content = ?, password = ?, qatype = ? where id = ?";
-				conn = DBUtil.getConnection();
-				try {
-					pst = conn.prepareStatement(sql);
-					pst.setString(1, update.getTitle());
-					pst.setString(2, update.getContent());
-					pst.setString(3, update.getPassword());
-					pst.setString(4, update.getQAtype());
-					pst.setInt(5, update.getId());
-					resultCount = pst.executeUpdate();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} finally {
-					DBUtil.dbDisconnect(conn, pst, null);
-				}
-				
-				return resultCount;
-				
-				
+		public int update(QA_Board_DTO update) {
+			Connection conn = null;
+			PreparedStatement pst = null;
+			ResultSet rs = null;
+			int resultCount = 0;
+			String sql = "update Board set title = ?, content = ?, password = ?, qatype = ? where id = ?";
+			conn = DBUtil.getConnection();
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, update.getTitle());
+				pst.setString(2, update.getContent());
+				pst.setString(3, update.getPassword());
+				pst.setString(4, update.getQAtype());
+				pst.setInt(5, update.getId());
+				resultCount = pst.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBUtil.dbDisconnect(conn, pst, null);
 			}
+			
+			return resultCount;
+		}
 }
