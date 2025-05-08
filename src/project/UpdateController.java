@@ -15,7 +15,7 @@ public class UpdateController implements CommControllerInterface{
 	
 	private static void f_update() {
 		System.out.print("수정할 게시글 번호 >> ");
-		int id = sc.nextInt();
+		int id = Integer.parseInt(sc.nextLine());
 		System.out.print("수정할 제목 입력 >> ");
 		String title = sc.nextLine();
 		System.out.print("수정할 본문 >> ");
