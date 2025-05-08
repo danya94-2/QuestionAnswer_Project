@@ -21,4 +21,8 @@ public class QA_Board_Service {
 	public int deleteById (int id) {
 		return qa_Board_DAO.deleteById(id);
 	}
+	
+	public int insert(QA_Board_DTO qa_board) {
+		return qa_Board_DAO.insert(qa_board);
+	}
 }
