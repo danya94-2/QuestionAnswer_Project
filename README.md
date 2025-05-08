@@ -1,7 +1,7 @@
 게시판 만들기 프로젝트
 
 
-김대현(팀장): DB작성, 프로젝트 초기 세팅, 깃 병합
+김대현(팀장): DB작성, 프로젝트 초기 세팅, 깃 병합, 코드 리팩토링, 기능 테스트
 
 최원정: feature/delete(), feature/insert(), FrontController, DeleteController, insertController 기능 구현, 코드 테스트
 
